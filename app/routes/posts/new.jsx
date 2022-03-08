@@ -9,7 +9,7 @@ export const Action = async ({request}) => {
 
 	// submit to database
 
-	// return redirect("/posts")
+	return redirect('/posts')
 }
 const NewPost = () => {
 	return (
