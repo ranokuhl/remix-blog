@@ -1,15 +1,15 @@
 import {Link, redirect} from 'remix'
 
-exporst const Action = async ({request}) => {
+export const Action = async ({request}) => {
 	const form = await request.formData()
-	const title = form.get("title")
-	const body = form.get("body")
-	
-	const fields = { title, body}
-	
+	const title = form.get('title')
+	const body = form.get('body')
+
+	const fields = {title, body}
+
 	// submit to database
-	
-	return redirect("/posts")
+
+	// return redirect("/posts")
 }
 const NewPost = () => {
 	return (
