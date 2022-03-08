@@ -8,7 +8,6 @@ declare global {
 
 if (process.env.NODE_ENV === 'production') {
 	db = new PrismaClient()
-
 	db.$connect()
 } else {
 	if (!global.__db) {
