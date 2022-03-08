@@ -1,8 +1,36 @@
+import {Link, useLoaderData} from 'remix'
+
+export const loader = () => {
+	const data = {
+		posts: [
+			{id: 1, title: 'Post 1', body: 'This is a test Post1.'},
+			{id: 2, title: 'Post 2', body: 'This is a test Post2.'},
+			{id: 3, title: 'Post 3', body: 'This is a test Post3.'},
+		],
+	}
+	return data
+}
+
 const PostItems = () => {
+	const {posts} = useLoaderData()
 	return (
-		<div>
-			<h1>Posts</h1>
-		</div>
+		<>
+			<div className='page-header'>
+				<h1>Posts</h1>
+				<Link to='/posts/new' className='btn'>
+					New Post
+				</Link>
+			</div>
+			<ul className='posts-list'>
+				{posts.map(post => (
+					<li key={post.id}>
+						<Link to={post.id}>
+							<h3>{post.title}</h3>
+						</Link>
+					</li>
+				))}
+			</ul>
+		</>
 	)
 }
 
